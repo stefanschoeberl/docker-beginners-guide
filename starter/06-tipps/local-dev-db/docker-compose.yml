@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:10.10.2
+    ports:
+      - 127.0.0.1:3306:3306
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=devdb
+      - MYSQL_USER=devuser
+      - MYSQL_PASSWORD=devpw
+    # TODO
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

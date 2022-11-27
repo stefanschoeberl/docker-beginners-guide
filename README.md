@@ -1,1 +1,1 @@
-# Docker-Workshop: Beginner's Guide
+# Docker-Workshop

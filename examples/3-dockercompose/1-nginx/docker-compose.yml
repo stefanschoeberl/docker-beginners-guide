@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  nginx:
-    image: nginx
-    ports:
-      - 127.0.0.1:8080:80
-    volumes:
-      - ./website:/usr/share/nginx/html:ro

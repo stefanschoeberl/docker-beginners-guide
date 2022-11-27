@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO App</title>
+    <link rel="stylesheet" href="webjars/bootstrap/css/bootstrap.min.css">
+    <style>
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h1>TODO List</h1>
+    <ul class="list-group mb-2">
+        <li class="list-group-item" th:each="todo: ${todos}">
+            <form action="update-todo" method="post">
+                <input type="hidden" name="todo-id" th:value="*{todo.id}">
+                <input type="hidden" name="todo-done" th:value="*{!todo.done}">
+                <input th:if="${todo.done}" class="checkbox btn btn-success me-2" type="submit" value="✓">
+                <input th:unless="${todo.done}" class="checkbox btn btn-outline-success me-2" type="submit" value="">
+                <span th:text="${todo.title}" th:remove="tag"></span>
+            </form>
+        </li>
+    </ul>
+    <form action="create-todo" method="post">
+        <input type="text" class="form-control" name="todo-title" autofocus>
+    </form>
+</div>
+</body>
+</html>
+
